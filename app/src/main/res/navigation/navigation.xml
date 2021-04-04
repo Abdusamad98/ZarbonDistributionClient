@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/loginFragment"
+    android:id="@+id/nav_root">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        tools:layout="@layout/login_fragment"
+        android:name="com.example.zarbondistributionclient.ui.screens.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/home_fragment"
+        android:id="@+id/homeFragment"
+        android:name="com.example.zarbondistributionclient.ui.screens.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_sellFragment"
+            app:destination="@id/sellFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_reportFragment"
+            app:destination="@id/reportFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_buyFragment"
+            app:destination="@id/buyFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_suggestionsFragment"
+            app:destination="@id/suggestionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/buyFragment"
+        tools:layout="@layout/buy_fragment"
+        android:name="com.example.zarbondistributionclient.ui.screens.BuyFragment"
+        android:label="BuyFragment" />
+    <fragment
+        android:id="@+id/reportFragment"
+        tools:layout="@layout/report_fragment"
+        android:name="com.example.zarbondistributionclient.ui.screens.ReportFragment"
+        android:label="ReportFragment" />
+    <fragment
+        android:id="@+id/sellFragment"
+        tools:layout="@layout/sell_fragment"
+        android:name="com.example.zarbondistributionclient.ui.screens.SellFragment"
+        android:label="SellFragment" />
+    <fragment
+        android:id="@+id/suggestionsFragment"
+        tools:layout="@layout/suggest_fragment"
+        android:name="com.example.zarbondistributionclient.ui.screens.SuggestionsFragment"
+        android:label="SuggestionsFragment" />
+</navigation>
