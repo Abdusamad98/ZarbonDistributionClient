@@ -29,7 +29,7 @@ fun OkHttpClient.Builder.addLogging(): OkHttpClient.Builder {
     val context = App.instance
     val logging = HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
         override fun log(message: String) {
-          log(message)
+            com.example.zarbondistributionclient.utils.log(message)
         }
     })
     logging.level = HttpLoggingInterceptor.Level.HEADERS

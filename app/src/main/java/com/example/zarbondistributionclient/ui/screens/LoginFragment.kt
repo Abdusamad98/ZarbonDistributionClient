@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.login_fragment.*
 
 class LoginFragment : Fragment(R.layout.login_fragment) {
     private val viewModel: LoginViewModel by viewModels()
-
+    var isLoggedIn = false
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -25,27 +25,27 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
             input_login.setText(SAVER.getLogin())
             loginLayout.visibility = View.GONE
             login.text = "Kirish"
+            isLoggedIn = true
         }
 
         login.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-//            val password = input_parol.text.toString()
-//            val username = input_login.text.toString()
-//
-//            if (username.isEmpty()) {
-//                input_login.error = "Loginni kiriting!"
-//            } else if (password.isEmpty()) {
-//                input_parol.error = "Parolni kiriting!"
-//            } else if (SAVER.token.isEmpty()) {
-//                viewModel.login(username, password)
-//            }
-//            else if(SAVER.getPassword() == input_parol.text.toString() ) {
-//                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-//            }
-//
-//            else {
-//                requireActivity().showToast("Parol xato!")
-//            }
+            //findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            val password = input_parol.text.toString()
+            val username = input_login.text.toString()
+
+            if (username.isEmpty()) {
+                input_login.error = "Loginni kiriting!"
+            } else if (password.isEmpty()) {
+                input_parol.error = "Parolni kiriting!"
+            } else if (SAVER.getLogin()!!.isEmpty()) {
+                viewModel.login(username, password)
+            }
+            else if(SAVER.getPhoneNumber() == input_parol.text.toString() ) {
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            }
+            else {
+                requireActivity().showToast("Parol xato!")
+            }
 
         }
         viewModel.progressLiveData.observe(viewLifecycleOwner, progressObserver)
@@ -63,8 +63,12 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
         }
     }
 
+
+
+
     private val errorLoginObserver = Observer<String> {
         requireActivity().showToast("Parol yoki Login xato!")
+        loginProgressBar.visibility = View.GONE
     }
     private val connectionErrorObserver = Observer<Unit> {
         requireActivity().showToast("Internet yuq!")
@@ -72,6 +76,7 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
     }
 
     private val successObserver = Observer<LoginResponse> {
+
         AlertDialog.Builder(requireContext())
             .setTitle("Diqqat!")
             .setMessage("Tizimga kirdingiz !")

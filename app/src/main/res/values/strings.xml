@@ -1,3 +1,65 @@
 <resources>
     <string name="app_name">Klient</string>
+    <string name="search_hint">Qidirish…</string>
+
+
+
+    <string name="rules">Qoidalar</string>
+    <string name="about">Default</string>
+    <string name="share">Default</string>
+    <string name="something">Something</string>
+    <string name="do_kon_nomi">Do\'kon nomi</string>
+    <string name="manzili">Manzili</string>
+    <string name="mas_ul_shaxs_ismi">Mas\'ul shaxs ismi</string>
+    <string name="telefon_raqam_1_shartli">Telefon raqam 1 (shartli)</string>
+    <string name="telefon_raqam_2">Telefon raqam 2</string>
+    <string name="taxminiy_aylanma_miqdori_so_m">Taxminiy aylanma miqdori, so\'m</string>
+    <string name="location">Location</string>
+    <string name="rasm_tanlash">Rasm tanlash</string>
+    <string name="qo_shish">Qo\'shish</string>
+    <string name="haridor_qo_shish_oynasi">Haridor qo\'shish oynasi</string>
+
+    <string name="cancel">cancel</string>
+    <string name="nomi">Nomi:</string>
+    <string name="qarzi">Qarzi:</string>
+    <string name="barcha_kilentlar">Barcha kilentlar</string>
+    <string name="qarzdor_kilentlar">Qarzdor kilentlar</string>
+    <string name="qarzdor_bo_lmagan_kilentlar">Qarzdor bo\'lmagan kilentlar</string>
+    <string name="tasdiqlash">Tasdiqlash</string>
+    <string name="ta_minotchi">Ta\'minotchi:</string>
+    <string name="sotish">Sotish</string>
+    <string name="chegirmani_tanlang">Chegirmani tanlang!</string>
+    <string name="muddati">Muddati:</string>
+    <string name="lokatsiyani_aniqlash">Lokatsiyani aniqlash</string>
+    <string name="xaritadan_kerakli_joyni_markazga_keltiring">Xaritadan kerakli joyni markazga keltiring!</string>
+    <string name="haridor_nomi">Haridor nomi:</string>
+    <string name="ma_sul_shaxs">Ma\'sul shaxs:</string>
+    <string name="telefon_raqami">Telefon raqami:</string>
+    <string name="qarzdorlik">Qarzdorlik:</string>
+    <string name="statusi">Statusi:</string>
+    <string name="miqdori">Miqdori:</string>
+    <string name="narxi">Narxi:</string>
+    <string name="sanasi">Sanasi:</string>
+    <string name="mahsulot_nomi">Mahsulot nomi:</string>
+    <string name="plan_miqdori">Plan miqdori:</string>
+    <string name="bajarilgani">Bajarilgani:</string>
+    <string name="muddat">Muddat:</string>
+    <string name="batafsil">Batafsil</string>
+    <string name="hisobot_matni">Hisobot matni</string>
+    <string name="tizimga_kirish">Tizimga kirish!</string>
+    <string name="login">Login</string>
+    <string name="parol">Parol</string>
+    <string name="mening_profilim">Mening profilim</string>
+    <string name="haridorlar_buyurtmasi">Haridorlar buyurtmasi</string>
+    <string name="barcha_buyurtmalar">Barcha buyurtmalar</string>
+    <string name="reja">Reja</string>
+    <string name="hisobotlar">Hisobotlar</string>
+    <string name="hisobot_yuborish">Hisobot yuborish</string>
+    <string name="chiqish">Chiqish</string>
+    <string name="mahsulot_buyurtma_qilish_uchun_avval_mahsulotni_tanlang">Mahsulot buyurtma qilish uchun avval mahsulotni tanlang!</string>
+    <string name="sotilayotgan_mahsulot_ma_lumotlari">SOTILAYOTGAN MAHSULOT MA\'LUMOTLARI!</string>
+    <string name="buyurtma_olish">Buyurtma olish</string>
+    <string name="mening_ma_lumotlarim">Mening ma\'lumotlarim</string>
+    <string name="hisobot_berish">Hisobot berish</string>
+    <string name="yuborish">Yuborish</string>
 </resources>

@@ -5,5 +5,5 @@ import com.example.zarbondistributionclient.data.models.loginmodel.LoginResponse
 import kotlinx.coroutines.flow.Flow
 
 interface LoginRepository {
-    suspend fun userLogin(loginData: LoginData): Flow<Result<LoginResponse?>>
+    suspend fun userLogin(loginData: LoginData): Flow<Result<Pair<Int,LoginResponse?>>>
 }

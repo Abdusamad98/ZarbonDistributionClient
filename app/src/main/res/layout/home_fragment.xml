@@ -34,6 +34,42 @@
              android:orientation="vertical"
              android:layout_height="match_parent">
 
+
+             <androidx.constraintlayout.widget.ConstraintLayout
+
+                 android:layout_width="match_parent"
+                 android:background="@color/colorAccent"
+                 android:layout_height="?actionBarSize">
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     app:layout_constraintTop_toTopOf="parent"
+                     app:layout_constraintBottom_toBottomOf="parent"
+                     app:layout_constraintLeft_toLeftOf="parent"
+                     android:id="@+id/clientName"
+                     android:text="Abdurahmon"
+                     android:textColor="@color/white"
+                     android:textSize="18sp"
+                     android:textStyle="bold"
+                     android:paddingLeft="20dp"
+                     android:layout_height="wrap_content"/>
+
+
+                 <ImageView
+                     android:id="@+id/logOut"
+                     android:backgroundTint="@color/white"
+                     android:layout_width="wrap_content"
+                     app:layout_constraintRight_toRightOf="parent"
+                     app:layout_constraintTop_toTopOf="parent"
+                     app:layout_constraintBottom_toBottomOf="parent"
+                     android:layout_marginRight="20dp"
+                     android:background="@drawable/ic_baseline_logout_24"
+                     android:layout_height="wrap_content"/>
+
+
+             </androidx.constraintlayout.widget.ConstraintLayout>
+
+
              <LinearLayout
                  android:layout_width="match_parent"
                  android:weightSum="2"

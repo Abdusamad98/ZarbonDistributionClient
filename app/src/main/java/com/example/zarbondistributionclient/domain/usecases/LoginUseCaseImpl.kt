@@ -13,12 +13,20 @@ import kotlinx.coroutines.flow.collect
 class LoginUseCaseImpl : LoginUseCase {
     private val repository: LoginRepository = LoginRepositoryImpl()
     override val errorLoginLiveData = MutableLiveData<String>()
-
+    override val errorLogin = MutableLiveData<Unit>()
     override fun userLogin(loginData: LoginData): LiveData<LoginResponse> =
         liveData(Dispatchers.IO) {
             repository.userLogin(loginData).collect {
-                if (it.isSuccess) emit(it.getOrNull()!!)
-                else errorLoginLiveData.postValue("Error")
+                if (it.isSuccess) {
+                    it.getOrNull()?.let { pair ->
+                        if (pair.first == 200) pair.second?.let { it1 -> emit(it1) }
+                        if (pair.first == 404) errorLoginLiveData.postValue("Ma'lumot mavjud emas!")
+
+                    }
+                } else {
+                    errorLogin.postValue(Unit)
+                }
+
             }
         }
 

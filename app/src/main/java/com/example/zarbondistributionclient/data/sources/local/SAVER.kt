@@ -27,12 +27,21 @@ class SAVER(context: Context) {
         fun getAgentId() = preferences.getInt("agent_id", 0)
 
 
+        fun setClientId(clientId: Int) {
+            preferences.edit().putInt("client_id", clientId).apply()
+        }
+
+        fun getClientId() = preferences.getInt("client_id", 0)
+
+
+
+
         //Save Password
-        fun setPassword(password: String) {
+        fun setPhoneNumber(password: String) {
             preferences.edit().putString("password", password).apply()
         }
 
-        fun getPassword() = preferences.getString("password", "")
+        fun getPhoneNumber() = preferences.getString("password", "")
 
 
         //Save Login
@@ -41,13 +50,6 @@ class SAVER(context: Context) {
         }
 
         fun getLogin() = preferences.getString("login", "")
-
-        //Save First Name
-        fun setFirstName(firstName: String) {
-            preferences.edit().putString("first_name", firstName).apply()
-        }
-
-        fun getFirstName() = preferences.getString("first_name", "")
 
 
         //Save Last Name

@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             R.id.homeFragment-> {
                 AlertDialog.Builder(this)
                     .setTitle("Diqqat!")
-                    .setMessage("Haqiqatdan tizimdan chiqmoqchimisiz!")
+                    .setMessage("Tizimdan chiqmoqchimisiz!")
                     .setNegativeButton("Yo'q") { dialog, _ ->
                         dialog.cancel()
                     }

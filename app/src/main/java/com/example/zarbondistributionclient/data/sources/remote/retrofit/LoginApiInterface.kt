@@ -10,7 +10,7 @@ import retrofit2.http.POST
 
 interface LoginApiInterface {
 
-    @POST("user/login/")
+    @POST("client/client-login/")
    suspend fun userLogin(
         @Header("Accept") app_json: String,
         @Body loginData: LoginData

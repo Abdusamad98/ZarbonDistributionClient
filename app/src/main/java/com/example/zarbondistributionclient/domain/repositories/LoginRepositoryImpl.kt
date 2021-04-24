@@ -13,18 +13,19 @@ import kotlinx.coroutines.flow.flow
 class LoginRepositoryImpl : LoginRepository {
     private val api = ApiClient.retrofit.create(LoginApiInterface::class.java)
 
-    override suspend fun userLogin(loginData: LoginData): Flow<Result<LoginResponse?>> = flow {
+    override suspend fun userLogin(loginData: LoginData): Flow<Result<Pair<Int,LoginResponse?>>> = flow {
         try {
             val response = api.userLogin("application/json", loginData)
             if (response.code() == 200) {
-                emit(Result.success(response.body()))
-                SAVER.setPassword(loginData.password)
-                SAVER.setLogin(loginData.username)
-                SAVER.token = response.body()!!.token!!
-                SAVER.setAgentId(response.body()!!.user!!.id)
-                SAVER.setFirstName(response.body()!!.user!!.first_name)
-                SAVER.setLastName(response.body()!!.user!!.last_name)
-                log(response.body()!!.user.toString(), "Login qildi!")
+                emit(Result.success(Pair(200,response.body())))
+                SAVER.setPhoneNumber(loginData.phone_number1)
+                SAVER.setLogin(loginData.name)
+
+                SAVER.setAgentId(response!!.body()!!.agent_id)
+                SAVER.setClientId(response.body()!!.client_id)
+            }
+            else if(response.code() == 404){
+                emit(Result.success(Pair(404,null)))
             }
 
         } catch (e: Exception) {
