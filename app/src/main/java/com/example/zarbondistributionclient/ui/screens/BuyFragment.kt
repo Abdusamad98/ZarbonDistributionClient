@@ -22,15 +22,12 @@ import com.example.zarbondistributionclient.data.models.productsmodel.ProductDat
 import com.example.zarbondistributionclient.data.sources.local.SAVER
 import com.example.zarbondistributionclient.ui.adapters.ProductListAdapter
 import com.example.zarbondistributionclient.ui.dialogs.BuyProductDialog
-import com.example.zarbondistributionclient.ui.dialogs.CarChooseDialog
 import com.example.zarbondistributionclient.ui.dialogs.CategoryChooseDialog
 import com.example.zarbondistributionclient.ui.viewmodels.ProductsPageViewModel
 import com.example.zarbondistributionclient.utils.showToast
 import kotlinx.android.synthetic.main.buy_fragment.*
-import kotlinx.android.synthetic.main.suggest_fragment.*
 
 class BuyFragment : Fragment(R.layout.buy_fragment) {
-
 
 
     private val pageViewModel: ProductsPageViewModel by viewModels()
@@ -48,6 +45,8 @@ class BuyFragment : Fragment(R.layout.buy_fragment) {
         recycler = view.findViewById(R.id.recyclerProducts)
 
         categories = ArrayList<CategoryData>()
+
+        pageViewModel.getCategories()
 
         categorySetUp()
         productsSetUp()
@@ -68,17 +67,25 @@ class BuyFragment : Fragment(R.layout.buy_fragment) {
         }
 
         productsAdapter.clickedProduct { id ->
-             val dialog = BuyProductDialog(requireContext(), productData[id].unit,productData[id].price)
+            val dialog =
+                BuyProductDialog(requireContext(), productData[id].unit, productData[id].price)
             dialog.show()
             dialog.setOnBuyProduct { quantity ->
-                pageViewModel.buyProduct(BuyProductData(quantity.toString(), SAVER.getClientId(),productData[id].id,productData[id].price_id))
+                pageViewModel.buyProduct(
+                    BuyProductData(
+                        quantity.toString(),
+                        SAVER.getClientId(),
+                        productData[id].id,
+                        productData[id].price_id
+                    )
+                )
             }
         }
 
         productsAdapter.clickedAboutProduct { id ->
             findNavController().navigate(
                 BuyFragmentDirections.actionBuyFragmentToAboutProductFragment(id)
-      )
+            )
         }
 
         val handler = Handler()
@@ -118,7 +125,6 @@ class BuyFragment : Fragment(R.layout.buy_fragment) {
     }
 
 
-
     private val progressBuyObserver = Observer<Boolean> {
         if (it) {
             productsProgressBar.visibility = View.VISIBLE
@@ -128,6 +134,7 @@ class BuyFragment : Fragment(R.layout.buy_fragment) {
     }
 
     private val errorResponseBuyLiveDataDiscount = Observer<String> {
+        productsProgressBar.visibility = View.GONE
         requireActivity().showToast(it)
     }
 
@@ -140,9 +147,6 @@ class BuyFragment : Fragment(R.layout.buy_fragment) {
     private val successBuyObserver = Observer<BuyProductResponse> { response ->
         Toast.makeText(requireContext(), "Sotib olindi!", Toast.LENGTH_LONG).show()
     }
-
-
-
 
 
     private val progressObserver = Observer<Boolean> {
@@ -171,10 +175,6 @@ class BuyFragment : Fragment(R.layout.buy_fragment) {
     private val connectionErrorObserver = Observer<Unit> {
         requireActivity().showToast("Internet yuq!")
     }
-
-
-
-
 
 
     @SuppressLint("FragmentLiveDataObserve")

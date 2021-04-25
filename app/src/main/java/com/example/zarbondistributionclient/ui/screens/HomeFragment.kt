@@ -33,6 +33,10 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                 }.show()
         }
 
+        shoppingCart.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_shoppedProductsFragment)
+        }
+
         button1.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_reportFragment)
         }

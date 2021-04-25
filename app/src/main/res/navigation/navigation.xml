@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_homeFragment_to_suggestionsFragment"
             app:destination="@id/suggestionsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_shoppedProductsFragment"
+            app:destination="@id/shoppedProductsFragment" />
     </fragment>
     <fragment
         android:id="@+id/buyFragment"
@@ -68,5 +71,10 @@
         app:argType="integer"
         android:defaultValue="0" />
     </fragment>
+    <fragment
+        tools:layout="@layout/shopped_products_view"
+        android:id="@+id/shoppedProductsFragment"
+        android:name="com.example.zarbondistributionclient.ui.screens.ShoppedProductsFragment"
+        android:label="ShoppedProductsFragment" />
 
 </navigation>

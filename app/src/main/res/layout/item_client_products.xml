@@ -16,18 +16,6 @@
         android:layout_margin="8dp"
         android:orientation="vertical">
 
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:padding="8dp"
-            android:id="@+id/product_image"
-            android:layout_height="220dp"/>
-
-
-
-
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,33 +32,9 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/productName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="60"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="4dp"
-            android:weightSum="100">
-
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="40"
-                android:text="Mahsulot narxi:"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/productPrice"
+                android:id="@+id/soldItemNameClient"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="60"
@@ -83,7 +47,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:orientation="horizontal"
             android:padding="4dp"
             android:weightSum="100">
@@ -99,8 +62,9 @@
 
 
             <TextView
-                android:id="@+id/productStatus"
+                android:id="@+id/soldItemStatusClient"
                 android:layout_width="0dp"
+                android:textStyle="bold"
                 android:layout_height="wrap_content"
                 android:layout_weight="60"
                 android:textColor="@color/black"
@@ -110,10 +74,8 @@
 
 
         <LinearLayout
-            android:id="@+id/quantityLinear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:orientation="horizontal"
             android:padding="4dp"
             android:weightSum="100">
@@ -129,7 +91,7 @@
 
 
             <TextView
-                android:id="@+id/productQuantity"
+                android:id="@+id/soldItemQuantityClient"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="60"
@@ -142,10 +104,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:orientation="horizontal"
             android:padding="4dp"
-            android:visibility="gone"
             android:weightSum="100">
 
 
@@ -153,13 +113,42 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="40"
-                android:text="@string/ta_minotchi"
+                android:text="@string/narxi"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp" />
 
 
             <TextView
-                android:id="@+id/productProvider"
+                android:id="@+id/soldItemPriceClient"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:weightSum="100">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="40"
+                android:text="Chegirmasi:"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/givenDiscount"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="60"
@@ -172,7 +161,39 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:weightSum="100">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="40"
+                android:text="Qarzdorlik:"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/productDebt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="4dp"
             android:weightSum="100">
@@ -188,7 +209,7 @@
 
 
             <TextView
-                android:id="@+id/productDate"
+                android:id="@+id/soldItemDateClient"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="60"
@@ -199,77 +220,10 @@
 
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:orientation="horizontal"
-            android:padding="4dp"
-            android:weightSum="100">
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:id="@+id/productAbout"
-                android:layout_width="0dp"
-                android:gravity="center"
-                android:background="@drawable/frame"
-                android:layout_height="wrap_content"
-                android:layout_weight="40">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:text="Batafsil"
-                    android:paddingTop="6dp"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:paddingBottom="6dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:gravity="center"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:layout_height="wrap_content"
-                    />
-
-
-            </LinearLayout>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="20"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16sp" />
-
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:id="@+id/productSell"
-                android:layout_width="0dp"
-                android:gravity="center"
-                android:background="@drawable/frame"
-                android:layout_height="wrap_content"
-                android:layout_weight="40">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:text="Sotib olish"
-                    android:paddingTop="6dp"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:paddingBottom="6dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:gravity="center"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:layout_height="wrap_content"
-/>
-
-
-            </LinearLayout>
-
-        </LinearLayout>
 
     </LinearLayout>
 
-
 </androidx.cardview.widget.CardView>
+
 

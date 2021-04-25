@@ -30,7 +30,7 @@ class ProductsPageViewModel : ViewModel() {
 
     private val useCaseBuy: BuyProductUseCase = BuyProductUseCaseImpl()
     val errorNotResponseBuyLiveData: LiveData<String> = useCaseBuy.errorNotResponseLiveData
-    val errorResponseBuyLiveData = MediatorLiveData<String>()
+    val errorResponseBuyLiveData = useCaseBuy.errorResponseLiveData
     val progressSellLiveData = MutableLiveData<Boolean>()
     val connectionBuyError = MutableLiveData<Unit>()
     val successBuyLiveData = MediatorLiveData<BuyProductResponse>()
@@ -51,12 +51,6 @@ class ProductsPageViewModel : ViewModel() {
 
     }
 
-
-
-
-    init {
-        getCategories()
-    }
 
     fun getProducts(categoryId: Int) {
         if (isConnected()) {
